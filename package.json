@@ -1,0 +1,27 @@
+{
+  "name": "slotmachine",
+  "version": "0.0.0",
+  "description": "Slot machine game",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/munichlinux/slot-machine"
+  },
+  "keywords": [
+    "html5",
+    "slot",
+    "machine",
+    "game"
+  ],
+  "author": "Prashanth <munichlinux@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/munichlinux/slot-machine/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  }
+}
