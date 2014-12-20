@@ -10,6 +10,10 @@
 
 module.exports = function(grunt) {
 
+  require('load-grunt-tasks')(grunt, {
+    scope: ['devDependencies', 'dependencies', "optionalDependencies"]
+  });
+
   // Project configuration.
   grunt.initConfig({
     jshint: {
