@@ -21,5 +21,6 @@ mocha-phantomjs test/index.html // open the file on the browser.
 ```
 ## demo
 ```link
-https://html5-slotmachine.herokuapp.com/
+[HTML5 slotmachine](https://html5-slotmachine.herokuapp.com/)
+
 ```
