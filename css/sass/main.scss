@@ -4,8 +4,8 @@
 @import "compass/css3";
 @import "compass/css3/user-interface";
 
-$partHeight: 50px;
-$partWidth: 50px;
+$partHeight: 70px;
+$partWidth: 120px;
 $reelHeight: $partHeight;
 $reelSideWidth: $reelHeight / 2;
 
@@ -31,7 +31,7 @@ $reelSideWidth: $reelHeight / 2;
         position: absolute;
         @for $i from 0 through 6 {
             &:nth-child(#{$i + 1} ) {
-              @include transform(rotateX( ((360deg / 6) * $i ) ) translateZ( 50px ));
+              @include transform(rotateX( ((360deg / 6) * $i ) ) translateZ( 70px ));
           }
         }
     }
