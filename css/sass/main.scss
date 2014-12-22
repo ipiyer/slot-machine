@@ -31,7 +31,7 @@ $reelSideWidth: $reelHeight / 2;
         position: absolute;
         @for $i from 0 through 6 {
             &:nth-child(#{$i + 1} ) {
-              @include transform(rotateX( ((360deg / 6) * $i ) ) translateZ( 70px ));
+              @include transform(rotateX( ((360deg / 6) * $i ) ) translateZ($partHeight));
           }
         }
     }
