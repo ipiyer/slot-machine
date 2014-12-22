@@ -19,4 +19,7 @@ grunt watch // recompiles sass and does jshint
 ```js
 mocha-phantomjs test/index.html // open the file on the browser.
 ```
- 
+## demo
+```link
+https://html5-slotmachine.herokuapp.com/
+```
