@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../js/vendors/mocha/mocha.css">
+    </head>
+    <body>
+           <div id="mocha" data-build-exclude="true"></div>
+        <div id="slot-machine" class="reel-container">
+            <div class="reels clearfix" >
+                <div id="reel-1" class="reel col-xs-4">
+                </div>
+                <div id="reel-2" class="reel col-xs-4">
+                </div>
+                <div id="reel-3" class="reel col-xs-4">
+                </div>
+            </div>
+            <button id="play" class="btn btn-default btn-primary">Spin</button>
+        </div>
+        <div id="result">
+
+        </div>
+        <script type="text/javascript" src="../js/vendors/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../js/vendors/underscore/underscore-min.js"></script>
+        <script type="text/javascript" src="../js/game.js"></script>
+        <script type="text/javascript" src="../js/vendors/chai/chai.js"></script>
+        <script type="text/javascript" src="../js/vendors/mocha/mocha.js"></script>
+
+        <script>
+           mocha.ui('bdd');
+            mocha.reporter('html');
+        </script>
+                <script type="text/javascript" src="js/slotmachine.test.js"></script>
+        <script>
+        $(function(){
+          if (window.mochaPhantomJS) {
+            mochaPhantomJS.run();
+          } else {
+            mocha.run();
+          }
+        });
+        </script>
+    </body>
+</html>
