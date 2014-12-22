@@ -109,7 +109,7 @@
             return indxs.reduce(function(arr, indx, arrIndex) {
                 return _(arr).push(reels[arrIndex].items[indx]);
             }, []);
-        }
+        };
 
         var areItemsSameKind = function(indexs) {
             var selectedItems = getSelectedItems(indexs);
@@ -121,9 +121,9 @@
             // if yes then no match; items are related with the 'TYPE' atttibute 
 
             return !_.find(selectedItems, function(item) {
-                return item.type != matchType;
+                return item.type !== matchType;
             }) ? matchType : false;
-        }
+        };
 
         return {
             areItemsSameKind: areItemsSameKind
@@ -139,12 +139,11 @@
 
         if (!this.options.reels) {
             throw new Error("Game items arugment missing");
-            return false;
         }
 
         this.reels = Reels(this.options);
         this.itemCollection = new ItemCollection(this.options.reels);
-    }
+    };
 
     Game.prototype = {
         constructor: Game,
@@ -165,7 +164,7 @@
                 // to form a wheel. Example with 3 items it will look like triangle
 
                 reel.items = _.flatten(_.times(that.options.repeatItems, function() {
-                    return reel.items
+                    return reel.items;
                 }));
 
                 return reel;
@@ -173,7 +172,7 @@
 
             var inject = function(reel) {
                 reel.el.html(reel.items.map(that.options.template));
-            }
+            };
 
             this.options.reels.map(inject);
 
