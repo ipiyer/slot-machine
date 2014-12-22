@@ -1,0 +1,49 @@
+@import "compass";
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3";
+@import "compass/css3/user-interface";
+
+$partHeight: 50px;
+$partWidth: 50px;
+$reelHeight: $partHeight;
+$reelSideWidth: $reelHeight / 2;
+
+
+
+.reel {
+    position: relative;
+    height: $reelHeight;
+    @include transform-style(preserve-3d);
+    @include transition-timing-function(cubic-bezier(0.57,-0.03,0.57,1.1));
+    @include transition-property(transform);
+    @include transform(rotateX(0deg));
+    .part {
+        background-color: #123321;
+        height: $partHeight;
+        width: $partWidth;
+        margin: 5px 0;
+        color: #fff;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        @for $i from 0 through 6 {
+            &:nth-child(#{$i + 1} ) {
+              @include transform(rotateX( ((360deg / 6) * $i ) ) translateZ( 50px ));
+          }
+        }
+    }
+}
+
+#slot-machine {
+    .reels{
+        position: relative;
+        height: $partHeight * 3;
+    }
+    &.reel-container {
+        max-width: 500px;
+        margin: 10% auto 0;
+    }    
+}
