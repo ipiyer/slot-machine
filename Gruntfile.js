@@ -10,67 +10,78 @@
 
 module.exports = function(grunt) {
 
-  require('load-grunt-tasks')(grunt, {
-    scope: ['devDependencies', 'dependencies', "optionalDependencies"]
-  });
+    require('load-grunt-tasks')(grunt, {
+        scope: ['devDependencies', 'dependencies', "optionalDependencies"]
+    });
 
-  // Project configuration.
-  grunt.initConfig({
-    jshint: {
-      all: [
-        'Gruntfile.js',
-        'js/*.js',
-        '<%= nodeunit.tests %>',
-      ],
-      options: {
-        jshintrc: '.jshintrc',
-      },
-    },
-
-    // Before generating any new files, remove any previously-created files.
-    clean: {
-      tests: ['tmp'],
-    },
-
-    // Configuration to be run (and then tested).
-    slotmachine: {
-      default_options: {
-        options: {},
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
+    // Project configuration.
+    grunt.initConfig({
+        jshint: {
+            all: [
+                'Gruntfile.js',
+                'js/*.js'
+            ],
+            options: {
+                jshintrc: '.jshintrc',
+            },
         },
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
+
+        watch: {
+            compass: {
+                files: [
+                    'css/sass/*.scss',
+                    'css/sass_includes/**/*'
+                ],
+                tasks: ['compass:dev'],
+                options: {
+                    livereload: true
+                }
+            },
+            js: {
+                files: ['js/**/*.js', 'Gruntfile.js'],
+                tasks: ['jshint'],
+                options: {
+                    livereload: true
+                }
+            },
+            index: {
+                files: ['index.html'],
+                options: {
+                    livereload: true
+                }
+            }
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
-    },
+        compass: {
+            options: {
+                sassDir: 'css/sass',
+                generatedImagesDir: 'img',
+                imagesDir: 'img',
+                importPath: ['css/sass_includes'],
+                relativeAssets: false,
+                assetCacheBuster: false,
+                noLineComments: true,
+                trace: true
+            },
+            dev: {
+                options: {
+                    debugInfo: false,
+                    outputStyle: 'expanded',
+                    cssDir: 'css'
+                }
+            }
+        }
 
-    // Unit tests.
-    nodeunit: {
-      tests: ['test/*_test.js'],
-    },
+    });
 
-  });
 
-  // Actually load this plugin's task(s).
-  grunt.loadTasks('tasks');
+    // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+    // Whenever the "test" task is run, first clean the "tmp" dir, then run this
+    // plugin's task(s), then test the result.
+    grunt.registerTask('test', []);
 
-  // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-  // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'slotmachine', 'nodeunit']);
-
-  // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+    // By default, lint and run all tests.
+    grunt.registerTask('default', ['jshint']);
 
 };

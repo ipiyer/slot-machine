@@ -6,21 +6,26 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/vendors/normalize-css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <div id="slot-machine" class="reel-container">
+            <div class="reels clearfix" >
+                <div id="reel-1" class="reel col-xs-4">
+                </div>
+                <div id="reel-2" class="reel col-xs-4">
+                </div>
+                <div id="reel-3" class="reel col-xs-4">
+                </div>
+            </div>
+            <button id="play" class="btn btn-default btn-primary">Spin</button>
+        </div>
+        <div id="result">
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
+        </div>
         <script type="text/javascript" src="js/vendors/jquery/jquery.js"></script>
-
+        <script type="text/javascript" src="js/vendors/underscore/underscore-min.js"></script>
+        <script type="text/javascript" src="js/game.js"></script>
     </body>
 </html>

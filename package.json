@@ -22,6 +22,10 @@
     "url": "https://github.com/munichlinux/slot-machine/issues"
   },
   "devDependencies": {
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+    "grunt-contrib-sass": "~0.8.1",
+    "load-grunt-tasks": "~1.0.0",
+    "grunt-contrib-compass": "~1.0.1",
+    "grunt-contrib-watch": "~0.6.1"
   }
 }
