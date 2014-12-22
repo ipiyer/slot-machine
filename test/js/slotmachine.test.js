@@ -100,3 +100,46 @@ describe("ItemCollection", function() {
         done();
     });
 });
+
+
+describe("Reels", function() {
+    it("expeted to instantiate Reel", function(done) {
+        var startSpinning = SlotMachine.Reels(options).startSpinning();
+        var els = [$("#reel-1"), $("#reel-2"), $("#reel-3")];
+
+        els.forEach(function(el) {
+            expect(el[0].style.transition).to.match(/\d+ms/);
+        });
+        done();
+    });
+    it("startSpinning to return array of promise", function(done) {
+        var startSpinning = SlotMachine.Reels(options).startSpinning();
+        expect(startSpinning).to.be.an.Array;
+
+        startSpinning.forEach(function(reel) {
+            expect(_.has(reel, "then")).to.be.true;
+        });
+        done();
+    });
+});
+
+describe("Game", function() {
+    it("render to inject markup into dom", function(done) {
+        var game = new SlotMachine.Game(options);
+        game.render();
+        expect($("#reel-1").children().length).to.equal(6);
+        done();
+    });
+
+    it("play should return the result", function(done) {
+        var game = new SlotMachine.Game(options);
+        game.render().play().then(function(result) {
+            // both lost and won case;
+            var resultType = _.isBoolean(result) || _.isString(result);
+            expect(resultType).to.be.true;
+            done();
+        }).fail(function(e) {
+            done(e);
+        });
+    });
+});
