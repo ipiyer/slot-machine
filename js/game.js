@@ -60,7 +60,7 @@
 
             return dfd.promise();
         }
-    }
+    };
 
     // Reels iterates over all options.reels and
     // creates instance of Reel class
@@ -84,11 +84,11 @@
             var degree = indx * (360 / options.reelLength) + (360 * _.random(50, 100));
 
             return fn(time, degree, (indx > 2) ? Math.abs(indx - (options.reelLength / options.repeatItems)) : indx);
-        }
+        };
 
         var startSpinning = function() {
             return reelInstances.map(callSpinReel);
-        }
+        };
 
         return {
             startSpinning: startSpinning
